@@ -141,8 +141,8 @@ def main():
 
             def cond2(y):
                 return y[2]-y[1] # Z >= T
-          Lista_test= []
-          for i in range(0, 400):
+            Lista_test = []
+            for i in range(0, 400):
                 beta = random.uniform(Beta * (1 - betaimprec), Beta * (1 + betaimprec))
                 eta = random.uniform(Eta * (1 - etaimprec), Eta * (1 + etaimprec))
                 lbda = random.uniform(Lbda * (1 - lbdaimprec), Lbda * (1 + lbdaimprec))
@@ -154,21 +154,14 @@ def main():
                 p = random.uniform(P * (1 - etaimprec), P * (1 + etaimprec))
                 cr = objetivo(y)
                 Lista_test.append(cr)
-                 # Exibir média e desvio padrão
+            
+            # Exibindo média e desvio padrão
             st.write("Média:", sum(Lista_test) / len(Lista_test))
             st.write('Desvio Padrão:', np.std(Lista_test))
             
-            # Criar box-plot
-            fig, ax = plt.subplots()
-            ax.boxplot(Lista_test)
-            ax.set_title('Box-Plot da Taxa de Custo')
-            ax.set_ylabel('Taxa de Custo')
-            
-            # Exibir o gráfico no Streamlit
-            st.pyplot(fig)
-            print("Média :", sum(Lista_test)/len(Lista_test))
-            print('Devios Padrão:', np.std(Lista_test))
-            
+            # Criando box-plot
+            st.write('Box-Plot da Taxa de Custo')
+            st.pyplot(plt.boxplot(Lista_test))
     if choice == menu[1]:
         st.header(menu[1])
         st.write('''Fazer o texto para colocar aqui''')
