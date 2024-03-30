@@ -161,9 +161,14 @@ def main():
             st.write('Desvio Padrão:', np.std(Lista_test))
             
             # Criando box-plot
-            st.write('Box-Plot da Taxa de Custo')
-            st.pyplot(plt.boxplot(Lista_test))
+            fig, ax = plt.subplots()
+            ax.boxplot(Lista_test)
+            ax.set_title('Box-Plot da Taxa de Custo')
+            ax.set_ylabel('Taxa de Custo')
             
+            # Renderizando a figura do Matplotlib usando st.pyplot()
+            st.pyplot(fig)
+
     if choice == menu[1]:
         st.header(menu[1])
         st.write('''Fazer o texto para colocar aqui''')
