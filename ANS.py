@@ -15,7 +15,7 @@ def main():
     foto = Image.open('foto.png')
     col2.image(foto, use_column_width=True)
 
-    st.title('Política de Substituição Preventiva com Oportunidade e Prorrogação')
+    st.title('Análise de Sensibilidade da Política de Substituição Preventiva com Oportunidade e Prorrogação')
 
     menu = ["Aplicação", "Informação", "Website"]
     choice = st.sidebar.selectbox("Selecione aqui", menu)
