@@ -161,15 +161,16 @@ def main():
             st.write("Média:", sum(Lista_test) / len(Lista_test))
             st.write('Desvio Padrão:', np.std(Lista_test))
             
-            # Criando box-plot
-            fig, ax = plt.subplots()
-            ax.boxplot(Lista_test)
-            ax.set_title('Box-Plot da Taxa de Custo')
-            ax.set_ylabel('Taxa de Custo')
+            # Filtrar apenas os números reais em Lista_test
+            Lista_test_numeric = [x for x in Lista_test if isinstance(x, (int, float))]
             
-            # Renderizando a figura do Matplotlib usando st.pyplot()
-            st.pyplot(fig)
-
+            # Criar box-plot apenas se houver elementos na Lista_test_numeric
+            if Lista_test_numeric:
+                st.write('Box-Plot da Taxa de Custo')
+                st.pyplot(plt.boxplot(Lista_test_numeric))
+            else:
+                st.write('Não há dados válidos para criar o box-plot.')
+            
     if choice == menu[1]:
         st.header(menu[1])
         st.write('''Fazer o texto para colocar aqui''')
