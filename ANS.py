@@ -1,12 +1,7 @@
-import math
+import random
 import numpy as np
-import pandas as pd
-from scipy.integrate import quad, dblquad
-from scipy.optimize import minimize
 import streamlit as st
-import sys
-from streamlit import cli as stcli
-from PIL import Image
+import matplotlib.pyplot as plt
 
 # Funções e definições anteriores
 
@@ -141,6 +136,7 @@ def main():
 
             def cond2(y):
                 return y[2]-y[1] # Z >= T
+
             Lista_test = []
             for i in range(0, 400):
                 beta = random.uniform(Beta * (1 - betaimprec), Beta * (1 + betaimprec))
@@ -152,7 +148,7 @@ def main():
                 cf = random.uniform(Cf * (1 - cfimprec), Cf * (1 + cfimprec))
                 cw = random.uniform(Cw * (1 - cwimprec), Cw * (1 + cwimprec))
                 p = random.uniform(P * (1 - etaimprec), P * (1 + etaimprec))
-                cr = objetivo(y)
+                cr = objetivo(y)  # Corrigindo a passagem de y como argumento
                 Lista_test.append(cr)
             
             # Exibindo média e desvio padrão
@@ -162,6 +158,7 @@ def main():
             # Criando box-plot
             st.write('Box-Plot da Taxa de Custo')
             st.pyplot(plt.boxplot(Lista_test))
+            
     if choice == menu[1]:
         st.header(menu[1])
         st.write('''Fazer o texto para colocar aqui''')
@@ -175,3 +172,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
