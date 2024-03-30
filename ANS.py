@@ -1,8 +1,13 @@
-import random
+import math
 import numpy as np
+import pandas as pd
+from scipy.integrate import quad, dblquad
+from scipy.optimize import minimize
 import streamlit as st
-import matplotlib.pyplot as plt
-
+import sys
+from streamlit import cli as stcli
+from PIL import Image
+import random 
 # Funções e definições anteriores
 
 def main():
