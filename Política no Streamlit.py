@@ -29,17 +29,30 @@ def main():
     
     if choice == menu[0]:
         st.header(menu[0])
-        st.subheader("Insira os valores dos parâmetros abaixo:")
-        
-        beta = st.number_input('Parâmetro de forma (beta)', value=np.random.uniform(2, 5), step=0.1, format='%.1f')
-        eta = st.number_input('Parâmetro de escala (eta)', value=np.random.uniform(3, 4), step=0.1, format='%.1f')
-        lbda = st.number_input('Taxa de Chegada de Oportunidade (Lambda)', value=np.random.uniform(0, 4), step=0.1, format='%.1f')
-        cp = st.number_input('Custo de Substituição Preventiva em T(programado):', value=1.0, step=10.0, format='%.1f') #FEITO
-        cv = st.number_input('Custo de Substituição Preventiva em Z:', value=np.random.uniform(1, 3), step=10.0, format='%.1f')
-        co = st.number_input('Custo de Substituição Preventiva em Oportunidade:', value=np.random.uniform(0.25, 1), step=10.0, format='%.1f') #FEITO
-        cf = st.number_input('Custo da manutenção corretiva:', min_value=0.01, step=0.01, value=np.random.uniform(2.5, 10)) #FEITO
-        cw = st.number_input('substituição oportuna entre T e Z:', value=np.random.uniform(0.25, 1), step=10.0, format='%.1f')
-        p = st.number_input('#Probabilidade de Impedimento:', min_value=0.01, step=0.01, value=np.random.uniform(0, 0.2))
+        st.write('''Fazer o texto para colocar aqui''')
+        Beta = st.number_input('Parâmetro de forma (beta)')
+        Eta = st.number_input('Parâmetro de escala (eta)')    
+        Lbda = st.number_input('Taxa de Chegada de Oportunidade (Lambda)')
+        Cp = st.number_input('Custo de Substituição Preventiva em T(programado):') 
+        Cv = st.number_input('Custo de Substituição Preventiva em Z:')
+        Co = st.number_input('Custo de Substituição Preventiva em Oportunidade:') 
+        Cf = st.number_input('Custo da manutenção corretiva:') 
+        Cw = st.number_input('Substituição oportuna entre T e Z:')
+        P = st.number_input('Probabilidade de Impedimento:')
+         
+        betaimprec = st.number_input('Imprecisão do Parâmetro de forma (beta)')
+        etaimprec = st.number_input('Imprecisão do Parâmetro de escala (eta)')    
+        lbdaimprec = st.number_input('Imprecisão da Taxa de Chegada de Oportunidade (Lambda)')
+        cpimprec = st.number_input('Imprecisão do Custo de Substituição Preventiva em T(programado):') 
+        cvimprec = st.number_input('Imprecisão do Custo de Substituição Preventiva em Z:')
+        coimprec = st.number_input('Imprecisão do Custo de Substituição Preventiva em Oportunidade:') 
+        cfimprec = st.number_input('Imprecisão do Custo da manutenção corretiva:') 
+        cwimprec = st.number_input('Imprecisão da Substituição oportuna entre T e Z:')
+        pimpre = st.number_input('Imprecisão da Probabilidade de Impedimento:')
+        S = st.number_input('Valor de S')
+        T= st.number_input('Valor de T')    
+        Z= st.number_input('Valor de Z')
+        y = (S, T, Z)
         
         st.subheader("Clique no botão abaixo para rodar esse aplicativo:")
         
