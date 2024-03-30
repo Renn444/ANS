@@ -167,9 +167,12 @@ def main():
             # Criar box-plot apenas se houver elementos na Lista_test_numeric
             if Lista_test_numeric:
                 st.write('Box-Plot da Taxa de Custo')
-                st.pyplot(plt.boxplot(Lista_test_numeric))
+                fig, ax = plt.subplots()
+                ax.boxplot(Lista_test_numeric)
+                st.pyplot(fig)
             else:
                 st.write('Não há dados válidos para criar o box-plot.')
+
             
     if choice == menu[1]:
         st.header(menu[1])
