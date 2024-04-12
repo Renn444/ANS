@@ -72,55 +72,55 @@ def main():
 
             def objetivo(y):
                 S, T, Z = y  # Corrigindo a desestruturação das variáveis
-                # CASO 1
+                #CASO 1
                 def P1(S):
                     return Fx(S)
                 def C1(S):
                     return cf*P1(S)
                 def V1(S):
                     return (quad(lambda x: x*fx(x), 0, S)[0])  
-
-                # CASO 2
+    
+                #CASO 2
                 def P2(S,T):
-                    return Rh(T-S)*(Fx(T) - Fx(S)) + (dblquad(lambda x, h: fh(h)*fx(x), 0, T-S, S, lambda h: S+h)[0])
+                    return Rh(T-S)*(Fx(T) - Fx(S)) + (dblquad(lambda x, h: fh(h)*fx(x), 0, T-S, lambda h: S, lambda h: S+h)[0])
                 def C2(S,T):
                     return cf*P2(S,T)
                 def V2(S,T):
-                    return Rh(T-S)*(quad(lambda x: x*fx(x), S, T)[0])+ (dblquad(lambda x, h: x*fh(h)*fx(x), 0, T-S, S, lambda h: S+h)[0])
-
-                # CASO 3
+                    return Rh(T-S)*(quad(lambda x: x*fx(x), S, T)[0])+ (dblquad(lambda x, h: x*fh(h)*fx(x), 0, T-S, lambda h: S, lambda h: S+h)[0])
+                
+                #CASO 3
                 def P3(S,T,Z):
-                    return p*Rh(Z-S)*(Fx(Z)-Fx(T)) + p*(dblquad(lambda x, h: fh(h)*fx(x), T-S, Z-S, T, lambda h: h+S)[0])
+                    return p*Rh(Z-S)*(Fx(Z)-Fx(T)) + p*(dblquad(lambda x, h: fh(h)*fx(x), T-S, Z-S, lambda h: T, lambda h: h+S)[0])
                 def C3(S,T,Z):
                     return cf*P3(S,T,Z)
                 def V3(S,T,Z):
-                    return  p*Rh(T-S)*(quad(lambda x: x*fx(x), T, Z)[0]) + p*(dblquad(lambda x, h: x*fh(h)*fx(x), T-S, Z-S, T, lambda h: h+S)[0])
-
-                # CASO 4
+                    return  p*Rh(T-S)*(quad(lambda x: x*fx(x), T, Z)[0]) + p*(dblquad(lambda x, h: x*fh(h)*fx(x), T-S, Z-S, lambda h: T, lambda h: h+S)[0])
+                
+                #CASO 4
                 def P4(S,T):
                     return (quad(lambda h: fh(h)*Rx(S+h), 0, T-S)[0])
                 def C4(S,T):
                     return co*P4(S, T)
                 def V4(S,T):
                     return (quad(lambda h: (S+h)*fh(h)*Rx(S+h), 0, T-S)[0])
-
-                # CASO 5
+    
+                #CASO 5
                 def P5(S,T,Z):
                     return p*(quad(lambda h: fh(h)*Rx(S+h), T-S, Z-S)[0])
                 def C5(S,T,Z):
                     return cw*P5(S, T, Z)
                 def V5(S,T,Z): 
                     return p*(quad(lambda h: (S+h)*fh(h)*Rx(S+h), T-S, Z-S)[0])
-
-                # CASO 6
+    
+                #CASO 6
                 def P6(S,T):
                     return (1-p)*Rh(T-S)*Rx(T) 
                 def C6(S,T):
                     return cp*P6(S, T)
                 def V6(S,T):
                     return T*P6(S, T)
-
-                # CASO 7 
+    
+                #CASO 7 
                 def P7(S,T,Z):
                     return p*Rh(Z-S)*Rx(Z)
                 def C7(S,T,Z):
